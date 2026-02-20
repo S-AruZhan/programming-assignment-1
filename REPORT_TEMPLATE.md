@@ -3,13 +3,11 @@
 ## 1. Project Overview
 
 **Project Name:**  
-(write your project name)
+Hydration Balance Calculator
 
 **What does your calculator do?**  
-(Explain in 2–3 sentences what problem you are solving and what you calculate.)
+This tool calculates the optimal daily water intake based on a user's body weight and physical activity levels. It solves the problem of "one-size-fits-all" hydration advice by providing a personalized requirement grounded in physiological metrics.
 
-Example:  
-This calculator calculates Body Mass Index (BMI) using weight and height. It also classifies the result into health categories.
 
 ---
 
@@ -19,100 +17,93 @@ List and explain all inputs you used.
 
 | Input Name | Unit | What it Represents |
 |---|---|---|
-| Example: Weight | kg | User body weight |
-| Example: Height | cm | User height |
+| Example: Weight | kg | The primary biological factor for baseline fluid needs |
+| Example: Activity | minutes | Duration of exercise, representing variable fluid loss |
 
 Explain in words:  
-(Why did you choose these inputs? Why are they important?)
+I chose these inputs because weight determines the body's volume and metabolic rate, while physical activity is the most significant variable causing dehydration. These are measurable, realistic data points essential for an accurate estimation.
 
 ---
 
 ## 3. Process (Calculation Logic)
 
 **Formula or Calculation Used:**  
-(Write your formula or explain how calculation works.)
+TotalWater=(Weight*0.3)+(Activity/60*0.5)
 
 Example:  
 BMI = weight / (height in meters)^2
 
 **Steps:**
-1. Get input values from HTML  
-2. Convert values if needed (example: cm → meters)  
-3. Perform calculation  
-4. Store result in variable  
+1. Fetch: Retrieve string values from HTML DOM elements.  
+2. Convert: Use parseFloat() to transform strings into manageable numbers.
+3. Base Calculation: Apply the 30ml per 1kg rule (Weight *0.03).
+4. Activity Adjustment: Add 0.5 liters for every 60 minutes of activity.
+5. Formatting: Use .toFixed(2) to ensure the output is readable (e.g., 2.45L instead of 2.45111...). 
 
 ---
 
 ## 4. Conditional Logic (if / else)
 
-Explain how your program interprets the result.
+The program interprets the totalWater variable using three specific thresholds:
 
 Example:
 
-If BMI < 18.5 → Underweight  
-If BMI 18.5 – 24.9 → Normal  
-If BMI ≥ 25 → Overweight  
+If < 1.5L: Categorized as "Low Requirement". Typically applies to sedentary individuals or those with lower body mass.  
+If 1.5L – 3.0L: Categorized as "Standard Norm". This is the target range for the majority of healthy active adults.
+If > 3.0L: Categorized as "High Requirement". A warning is issued regarding electrolyte balance for high-intensity athletes.
 
-Explain why you chose these ranges (if using real model, mention it).
+These ranges are based on WHO (World Health Organization) general guidelines adapted for active lifestyles.
 
 ---
 
 ## 5. Output
 
-What does your program show to the user?
+The program displays the following directly in the HTML:
 
-- Calculated value  
-- Category or interpretation  
-- Personalized message (if used)  
-- Optional: binary output (if implemented)
+- Personalized Message: "Hello, [Name]!" 
+- Calculated Value: The exact volume of water in liters.
+- Interpretation: A status badge describing the hydration category.
+- UI State Change: The results box transitions from display: none to display: block only after a successful calculation.
 
 ---
 
 ## 6. Edge Cases / Unusual Inputs
 
-What happens if:
-
-- User enters zero?  
-- User enters negative number?  
-- User leaves input empty?  
-
-Explain how your program handles this.
+- Empty Input: The if (!name || isNaN(weight) || isNaN(activity)) check triggers an alert and halts the process.
+- Zero Values: If the user enters 0 for weight, the result will be 0. While mathematically correct, it is physiologically impossible; future versions should include a minimum weight threshold.
+- Extreme Inputs: High activity numbers (e.g., 1440 minutes) will result in massive water requirements. The logic trusts the user's input but classifies it correctly as "High Requirement."
 
 ---
 
 ## 7. Optional Features (If You Added Any)
 
 Examples:
-- Binary conversion  
-- Extra calculations  
-- Extra UI features  
-- Validation messages  
-
+- Validation Alerts: Prevents the script from breaking when encountering non-numeric data.
+- Dynamic CSS: The results are styled with a status badge that visually separates the interpretation from the raw data. 
+- UI Persistence: The result container is hidden by default to keep the interface clean. 
 ---
 
 ## 8. How to Run the Project
 
-1. Download or clone repository  
-2. Open `index.html` in browser  
-3. Enter input values  
-4. Click calculate button  
+1. Clone or download the repository.
+2. Open index.html in any modern web browser (Chrome, Firefox, Safari).  
+3. Enter your name, weight, and daily activity time.
+4. Click the "Calculate" button to view the results.  
 
 ---
 
 ## 9. AI Usage (If Used)
 
 Did you use AI tools?  
-(Yes / No)
+Yes
 
 If yes, explain briefly:
-- What you asked AI for  
-- What you modified yourself  
-- What you fully understand now  
+- I used AI to generate the initial CSS layout and to help structure the report template.
+- I manually adjusted the hydration formula to include the activity coefficient, as standard AI templates often only consider weight.
+- I fully understand the logic behind DOM manipulation and the conditional branching used in the script. 
 
 ---
 
 ## 10. Reflection
 
-What did you learn from this assignment?
-
-(2–4 sentences)
+Through this assignment, I learned the critical importance of data types in JavaScript—specifically the necessity of converting string inputs to floats before performing arithmetic. I also realized that even simple calculators require "defensive programming" (validation) to prevent the UI from displaying nonsensical results to the user.
