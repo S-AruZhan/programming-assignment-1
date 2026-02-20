@@ -17,8 +17,9 @@ List and explain all inputs you used.
 
 | Input Name | Unit | What it Represents |
 |---|---|---|
-| Example: Weight | kg | The primary biological factor for baseline fluid needs |
-| Example: Activity | minutes | Duration of exercise, representing variable fluid loss |
+| User Name | String | Used for personalized UI output and greeting |
+| Weight | kg | The primary biological factor for baseline fluid needs |
+| Activity | minutes | Duration of exercise, representing variable fluid loss |
 
 Explain in words:  
 I chose these inputs because weight determines the body's volume and metabolic rate, while physical activity is the most significant variable causing dehydration. These are measurable, realistic data points essential for an accurate estimation.
