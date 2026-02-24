@@ -107,4 +107,5 @@ If yes, explain briefly:
 
 ## 10. Reflection
 
-Through this assignment, I learned the critical importance of data types in JavaScript—specifically the necessity of converting string inputs to floats before performing arithmetic. I also realized that even simple calculators require "defensive programming" (validation) to prevent the UI from displaying nonsensical results to the user.
+Through this assignment, I finally began to understand code and commands. I figured out how HTML, JavaScript, and CSS work and learned how to rearrange or create new commands and distinguish between them. I now understand code structure and the meaning behind symbols like /, ;, ., &, and ||.
+I also learned how to work with GitHub and notebooks, including how to access their advanced versions. It was fun playing around with buttons and CSS design. During the process, I used AI to research, understand, and write code. I realized how crucial every single dot and semicolon is. At first, code seemed difficult to grasp, but after looking into how everything interacts, I realized it’s actually a quite simple, yet unique language.
