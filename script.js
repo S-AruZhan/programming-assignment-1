@@ -6,7 +6,7 @@ function calculateWater() {
     
     // Простейшая валидация
     if (!name || isNaN(weight) || isNaN(activity)) {
-        alert("Пожалуйста, заполните все поля корректно.");
+        alert("Please fill in all fields correctly.");
         return;
     }
 
@@ -19,16 +19,16 @@ function calculateWater() {
     // 3. Использование if/else для классификации
     let interpretation = "";
     if (totalWater < 1.5) {
-        interpretation = "Низкая потребность. Не забывайте пить даже при малой нагрузке.";
+        interpretation = "Low demand. Do not forget to drink even with a light load.";
     } else if (totalWater >= 1.5 && totalWater <= 3.0) {
-        interpretation = "Стандартная норма для поддержания здоровья.";
+        interpretation = "The standard norm for maintaining health.";
     } else {
-        interpretation = "Высокая потребность. Следите за балансом электролитов при больших нагрузках.";
+        interpretation = "High demand. Monitor the balance of electrolytes under heavy loads.";
     }
 
     // 4. Вывод результата в HTML
-    document.getElementById('greeting').innerText = `Привет, ${name}!`;
-    document.getElementById('calculationText').innerText = `Твоя суточная норма воды: ${totalWater} л.`;
+    document.getElementById('greeting').innerText = `Hi, ${name}!`;
+    document.getElementById('calculationText').innerText = `Your daily water allowance: ${totalWater} л.`;
     document.getElementById('categoryText').innerText = interpretation;
     
     // Делаем блок с результатом видимым
