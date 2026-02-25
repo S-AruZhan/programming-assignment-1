@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,25 +8,25 @@
 </head>
 <body>
     <div class="container">
-        <h1>Калькулятор гидратации</h1>
-        <p>Узнайте свою индивидуальную норму воды на день.</p>
-        
+        <h1>Hydration Calculator</h1>
+        <p>Find out your individual water intake for the day.</p>
+
         <div class="form-group">
-            <label for="userName">Ваше имя:</label>
-            <input type="text" id="userName" placeholder="Введите имя">
+            <label for="userName">Your name:</label>
+            <input type="text" id="userName" placeholder="Enter a name">
         </div>
 
         <div class="form-group">
-            <label for="weight">Вес (кг):</label>
-            <input type="number" id="weight" placeholder="Например: 70">
+            <label for="weight">Weight (kg):</label>
+            <input type="number" id="weight" placeholder="For example: 70">
         </div>
 
         <div class="form-group">
-            <label for="activity">Активность (минут спорта в день):</label>
-            <input type="number" id="activity" placeholder="Например: 60">
+            <label for="activity">Activity (minutes of sports per day):</label>
+            <input type="number" id="activity" placeholder="For example: 60">
         </div>
 
-        <button onclick="calculateWater()">Рассчитать норму</button>
+        <button onclick="calculateWater()">Calculate the rate</button>
 
         <div id="result" class="result-box" style="display: none;">
             <h2 id="greeting"></h2>
